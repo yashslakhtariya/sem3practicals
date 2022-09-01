@@ -14,3 +14,10 @@ desc Subject;
 
 desc Attendance;
 
+SELECT * FROM Student;
+
+SELECT * FROM Faculty;
+
+SELECT * FROM Subject;
+
+SELECT * FROM Attendance;
