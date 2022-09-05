@@ -1,7 +1,9 @@
 {
-     "sqltools.connections": [
+     "sqltools.connections": 
+     [
           {
-               "mysqlOptions": {
+               "mysqlOptions": 
+               {
                     "authProtocol": "default"
                },
                "previewLimit": 50,
@@ -13,5 +15,6 @@
                "username": "yash",
                "password": "krsna"
           }
-     ]
+     ],
+     "java.dependency.packagePresentation": "flat",
 }

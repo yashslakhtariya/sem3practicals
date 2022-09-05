@@ -40,6 +40,18 @@ class ysl
           {
                cin>>infx;
           }
+          void chkop(char y)
+          {
+               if (isalnum(y))
+               {
+                    
+               }
+               else
+               {
+                    
+               }
+               
+          }
           void cnvrt()
           {
 
