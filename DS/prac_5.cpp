@@ -32,9 +32,24 @@ class ysl
                     top=top-1;
                }
           }
-          void chkprec()
+          int chkprec(char y)
           {
-               
+               if (y=='+' || y=='-')
+               {
+                    return 1;
+               }
+               if (y=='*' || y=='/')
+               {
+                    return 2;
+               }
+               if (y=='^')
+               {
+                    return 3;
+               }
+               else
+               {
+                    return 0;
+               }
           }
           void ysl_in()
           {
@@ -44,11 +59,34 @@ class ysl
           {
                if (isalnum(y))
                {
-                    
+                    for (int i = 0; i < top; i++)
+                    {
+                         for (int j = 0; j < top; j++)
+                         {
+                              pstfx[j]=infx[i];
+                         }
+                    }
                }
                else
                {
-                    
+                    if(y=='(')
+                    {
+                         push(y);
+                    }
+                    if (y==')')
+                    {
+                         while (y!='(')
+                         {
+                              for (int i = 0; i < top; i++)
+                              {
+                                   for (int j = 0; j < top; j++)
+                                   {
+                                        pstfx[j]=infx[i];
+                                        pop();
+                                   }
+                              }
+                         }
+                    }
                }
                
           }
