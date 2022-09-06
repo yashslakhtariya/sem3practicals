@@ -1,103 +1,103 @@
-#include<iostream>
-#include<ctype.h>
-#include<string.h>
+#include <iostream>
+#include <stack>
 using namespace std;
-#define sz 100
 
-class ysl
+int chkprec(char c)
 {
-     public:
-          char infx[sz], pstfx[sz], stck[sz];
-          int top=-1;
-          void push(char y)
-          {
-               if (top==sz-1)
-               {
-                    cout<<"\tStack Overflow"<<endl;
-               }
-               else
-               {
-                    top=top+1;
-                    stck[top]=y;
-               }
-          }
-          void pop()
-          {
-               if(top==-1)
-               {
-                    cout<<"\tStack Underflow"<<endl;
-               }
-               else
-               {
-                    top=top-1;
-               }
-          }
-          int chkprec(char y)
-          {
-               if (y=='+' || y=='-')
-               {
-                    return 1;
-               }
-               if (y=='*' || y=='/')
-               {
-                    return 2;
-               }
-               if (y=='^')
-               {
-                    return 3;
-               }
-               else
-               {
-                    return 0;
-               }
-          }
-          void ysl_in()
-          {
-               cin>>infx;
-          }
-          void chkop(char y)
-          {
-               if (isalnum(y))
-               {
-                    for (int i = 0; i < top; i++)
-                    {
-                         for (int j = 0; j < top; j++)
-                         {
-                              pstfx[j]=infx[i];
-                         }
-                    }
-               }
-               else
-               {
-                    if(y=='(')
-                    {
-                         push(y);
-                    }
-                    if (y==')')
-                    {
-                         while (y!='(')
-                         {
-                              for (int i = 0; i < top; i++)
-                              {
-                                   for (int j = 0; j < top; j++)
-                                   {
-                                        pstfx[j]=infx[i];
-                                        pop();
-                                   }
-                              }
-                         }
-                    }
-               }
-               
-          }
-          void cnvrt()
-          {
+    if (c == '^')
+        return 3;
+    else if (c == '*' || c == '/')
+        return 2;
+    else if (c == '+' || c == '-')
+        return 1;
+    else
+        return 0;
+}
 
-          }
-};
+bool oprtr(char c)
+{
+    if (c == '+' || c == '-' || c == '*' || c == '/' || c == '^')
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+string cnvrt(stack<char> s, string infix)
+{
+    string postfix;
+    for (int i = 0; i < infix.length(); i++)
+    {
+        if ((infix[i] >= 'a' && infix[i] <= 'z') || (infix[i] >= 'A' && infix[i] <= 'Z'))
+        {
+            postfix += infix[i];
+        }
+        else if (infix[i] == '(')
+        {
+            s.push(infix[i]);
+        }
+        else if (infix[i] == ')')
+        {
+            while ((s.top() != '(') && (!s.empty()))
+            {
+                char temp = s.top();
+                postfix += temp;
+                s.pop();
+            }
+            if (s.top() == '(')
+            {
+                s.pop();
+            }
+        }
+        else if (oprtr(infix[i]))
+        {
+            if (s.empty())
+            {
+                s.push(infix[i]);
+            }
+            else
+            {
+                if (chkprec(infix[i]) > chkprec(s.top()))
+                {
+                    s.push(infix[i]);
+                }
+                else if ((chkprec(infix[i]) == chkprec(s.top())) && (infix[i] == '^'))
+                {
+                    s.push(infix[i]);
+                }
+                else
+                {
+                    while ((!s.empty()) && (chkprec(infix[i]) <= chkprec(s.top())))
+                    {
+                        postfix += s.top();
+                        s.pop();
+                    }
+                    s.push(infix[i]);
+                }
+            }
+        }
+    }
+    while (!s.empty())
+    {
+        postfix += s.top();
+        s.pop();
+    }
+
+    return postfix;
+}
 
 int main()
 {
+    string infx, pstfx;
 
-     return 0;
+    cin >> infx;
+    stack<char> stack;
+
+    pstfx = cnvrt(stack, infx);
+    cout << endl<< pstfx;
+
+    return 0;
 }
