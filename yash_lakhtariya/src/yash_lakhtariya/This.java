@@ -32,7 +32,6 @@ class Student
 public class This {
      public static void main(String[] args) {
           Student.college("ICT");
-          
           Student ysl = new Student(64, "Yash");
           ysl.total(16, 32, 64);
           ysl.dsply();
