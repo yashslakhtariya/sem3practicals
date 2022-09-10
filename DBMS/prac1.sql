@@ -1,6 +1,3 @@
-create database CBA_21162101012;
-use CBA_21162101012;
-
 create table client_info(Client_no varchar(6), C_Name char(20), City varchar(15), Pincode numeric(8), State varchar(15),Bal_due numeric(10,2), Date_of_commencement Date);
 create table product_info(Product_no varchar(20), Descriptionn varchar(50), P_percent numeric(4,2), U_measure varchar(20), Qty_on_hand numeric(8), Reorder_lvl numeric(8), Sell_price numeric(8,2), Cost_price numeric(8,2));
 create table salesman_info(S_no varchar(6), S_name varchar(20), Mobile_Number numeric(10), City varchar(20), Pincode numeric(8), State varchar(20), Sal_amnt numeric(8,2), Tgt_to_get numeric(6,2), Ytd_sales numeric(6,2), Remarks varchar(12));
