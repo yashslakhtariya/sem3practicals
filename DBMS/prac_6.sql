@@ -1,27 +1,29 @@
-select dep_id,count(dep_id) from emp_mstr group by dep_id; 
+select * from EMP_MSTR;
 
-select job_name, count(job_name) as 'NO.' from emp_mstr group by job_name;
+select dep_id,count(*) as Total_emp from EMP_MSTR group by dep_id;
 
-select emp_name from emp_mstr group by emp_name having sum(salary)>2000; 
+select dep_id,count(distinct job_name)as No_of_Job from EMP_MSTR group by dep_id;
 
-select count(*) from emp_mstr where hire_date > '1991-04-03'; 
+select distinct emp_name, salary from EMP_MSTR having salary>2000;
 
-select dep_id,count() as 'No. of Employees' from emp_mstr group by dep_id order by count() desc; 
+select count(*) from EMP_MSTR where hire_date>"1991-04-03";
 
-select dep_id,count(*) as 'Total no. of Employees' from emp_mstr group by dep_id having count(dep_id) > 3; 
+select job_name,count(job_name) from EMP_MSTR group by job_name order by count(job_name) desc;
 
-select dep_id,sum(salary) from emp_mstr group by dep_id; 
+select dep_id,count(*) from EMP_MSTR group by dep_id having count(*)>3;
 
-select dep_id,count(*) as 'No. of employees' from emp_mstr where emp_name like '%n' group by dep_id; 
+select dep_id,sum(salary) from EMP_MSTR group by dep_id;
 
-select dep_id,count(*) as 'No. of employees' from emp_mstr where emp_name like '%a%' group by dep_id; 
+select dep_id,count(emp_name) from EMP_MSTR where emp_name like '%n' group by dep_id;
 
-select count(distinct(emp_name)) as 'No. of Employees with Salary greater than their department average' from emp_mstr e where salary > (select avg(salary) from emp_mstr e2 where e2.dep_id = e.dep_id) group by dep_id; 
+select dep_id,count(emp_name) from EMP_MSTR where emp_name like '%a%' group by dep_id;
 
-select count(*),dep_id from emp_mstr group by dep_id having count(dep_id)>3;
+select dep_id,count(emp_name) from EMP_MSTR where salary > (select avg(salary) from EMP_MSTR) group by dep_id;
 
-select dep_id,avg(salary) from emp_mstr group by dep_id; 
+select dep_id,count(emp_name) from EMP_MSTR group by dep_id having count(emp_name)>2 order by dep_id desc;
 
-select emp_name, dep_id, salary from emp_mstr where salary in (select max(salary) from emp_mstr group by dep_id); 
+select dep_id,avg(salary) as Avg_sal from EMP_MSTR group by dep_id;
 
-select emp_name, dep_id, salary from emp_mstr where salary in (select min(salary) from emp_mstr group by dep_id);
+select dep_id,max(salary) from EMP_MSTR group by dep_id;
+
+select dep_id,min(salary) from EMP_MSTR group by dep_id;
