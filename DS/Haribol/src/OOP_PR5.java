@@ -40,7 +40,6 @@ public class OOP_PR5
     public static void main(String[] args)
     {
         pnt point = new pnt();
-        ecldn eucli = new ecldn();
         point.inpt();
         point.calc(point.x, point.y);
         point.root(ecldn.num);
