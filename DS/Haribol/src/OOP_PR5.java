@@ -5,7 +5,7 @@ class sqrert
 {
     void root(double y)
     {
-        System.out.println(Math.sqrt(y));
+        System.out.printf("%.4f",Math.sqrt(y));
     }
 }
 
