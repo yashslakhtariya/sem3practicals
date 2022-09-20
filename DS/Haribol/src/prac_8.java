@@ -26,8 +26,8 @@ class prac_8
     public static void main(String[] args)
     {
         int n=6;
-        int[] preordr = {4,2,1,3,5,6};
-        int[] inordr = {1,2,3,4,5,6};
+        int[] preordr = {4,2,5,1,3,6};
+        int[] inordr = {1,2,4,5,3,6};
         post(inordr, preordr, n);
     }
 }
