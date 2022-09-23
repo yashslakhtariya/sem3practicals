@@ -9,7 +9,7 @@
                "port": 3306,
                "driver": "MariaDB",
                "name": "mariadb",
-               "database": "prac_7",
+               "database": "prac_8",
                "username": "yash",
                "password": "krsna"
           }
