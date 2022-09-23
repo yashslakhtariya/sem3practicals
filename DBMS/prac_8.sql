@@ -147,11 +147,3 @@ select * from employee where deptno in (select deptno from department where dept
 select max(salary) from employee where salary<(select max(salary) from employee); -- 14
 
 select name from employee where salary in (select max(salary) from employee where salary<(select max(salary) from employee)); -- 15
-
-select distinct(pno) from project;
-
-
-
-
-
-
