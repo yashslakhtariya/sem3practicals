@@ -138,6 +138,8 @@ select deptname from department where deptno in (select distinct(deptno) from em
 
 select ProjectName from project where pno not in (select distinct(pno) from employee); -- 10  
 
+select ProjectName from project where pno in (select pno from employee group by pno); -- 11
+
 select name from employee where pno not in (select pno from project where ProjectName = 'Project1' or ProjectName = 'Project2') and city = 'Ahmedabad'; -- 12
 
 select * from employee where deptno in (select deptno from department where deptname = 'Sales' or deptname = 'Account') and salary > 40000; -- 13
