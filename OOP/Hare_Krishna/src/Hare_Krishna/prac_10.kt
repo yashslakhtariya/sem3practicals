@@ -2,8 +2,9 @@ package Hare_Krishna
 
 import java.util.Scanner
 
-class prac_10(var size : Int, var front : Int = 0, var rear : Int = 0, var qu: Array<Int> = arrayOf(0,1,2,3,4,5))
+class prac_10(var size : Int, var front : Int = 0, var rear : Int = 0)
 {
+    var qu = IntArray(size)
     fun enq(y: Int)
     {
         if (rear==size)
