@@ -1,8 +1,10 @@
 package Hare_Krishna
 
+import java.util.Scanner
+
 class prac_10(var size : Int, var front : Int = 0, var rear : Int = 0, var qu: Array<Int> = arrayOf(0,1,2,3,4,5))
 {
-    fun enq(y : Int)
+    fun enq(y: Int)
     {
         if (rear==size)
         {
@@ -44,20 +46,22 @@ class prac_10(var size : Int, var front : Int = 0, var rear : Int = 0, var qu: A
 fun main()
 {
     val q = prac_10(size = 5)
-    q.enq(10)
-    q.enq(20)
-    q.enq(30)
+    val ysl = Scanner(System.`in`)
+
+    q.enq(ysl.nextInt())
+    q.enq(ysl.nextInt())
+    q.enq(ysl.nextInt())
 
     q.deq()
     q.deq()
 
-    q.enq(40)
+    q.enq(ysl.nextInt())
 
     q.deq()
 
-    q.enq(50)
-
+    q.enq(ysl.nextInt())
     q.dsply()
 
-    q.enq(60)
+    q.enq(ysl.nextInt())
+
 }
