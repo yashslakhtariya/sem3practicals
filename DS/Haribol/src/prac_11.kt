@@ -1,5 +1,3 @@
-package Hare_Krishna
-
 import java.util.Scanner
 
 class prac_11(var size : Int, var front : Int = -1, var rear : Int = -1)
