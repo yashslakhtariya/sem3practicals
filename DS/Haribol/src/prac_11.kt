@@ -47,7 +47,7 @@ class prac_11(var size : Int, var front : Int = -1, var rear : Int = -1)
         }
         while(front<=rear)
         {
-            println("->" + qu[i].toString())
+            println("->" + qu[front].toString())
             front = (front+1) % qu.size
         }
     }
@@ -55,23 +55,9 @@ class prac_11(var size : Int, var front : Int = -1, var rear : Int = -1)
 
 fun main()
 {
-    val q = prac_10(size = 5)
+    val q = prac_11(size = 5)
     val ysl = Scanner(System.`in`)
 
-    q.enq(ysl.nextInt())
-    q.enq(ysl.nextInt())
-    q.enq(ysl.nextInt())
 
-    q.deq()
-    q.deq()
-
-    q.enq(ysl.nextInt())
-
-    q.deq()
-
-    q.enq(ysl.nextInt())
-    q.dsply()
-
-    q.enq(ysl.nextInt())
 
 }
