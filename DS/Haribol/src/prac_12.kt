@@ -1,0 +1,2 @@
+class prac_12 {
+}
