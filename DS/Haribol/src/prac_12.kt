@@ -1,3 +1,5 @@
+import java.util.Scanner
+
 class LinkedList {
     var head : Node? = null
 
@@ -80,7 +82,9 @@ class LinkedList {
         }
 
         @JvmStatic
-        fun main(args: Array<String>) {
+        fun main(args: Array<String>)
+        {
+            val scnr = Scanner(System.`in`) ;
             var list = LinkedList()
             list = insert(list, 1)
             list = insert(list, 2)
