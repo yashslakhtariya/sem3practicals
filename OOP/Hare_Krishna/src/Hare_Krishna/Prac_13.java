@@ -1,3 +1,4 @@
+package Hare_Krishna;
 import java.util.Scanner;
 
 interface RestDetails
