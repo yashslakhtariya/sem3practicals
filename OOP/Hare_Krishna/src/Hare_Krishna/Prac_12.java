@@ -1,17 +1,10 @@
 package Hare_Krishna;
-
 import java.util.Scanner;
 
 abstract class Book
 {
     String title;
-
     abstract void setTitle(String b);
-/*    String getTitle()
-    {
-        return title;
-    }
-*/
 }
 
 interface TitleBook
