@@ -13,7 +13,7 @@ public class Prac_11
         System.out.print("\nEnter the Strings : ");
         for (int i=0; i<n; i++)
             in[i] = scnr.next();
-
+        System.out.println();
         for (int a=0; a<n; a++)
         {
             for (int b=a+1; b<n; b++)
