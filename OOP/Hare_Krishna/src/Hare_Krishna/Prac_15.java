@@ -1,36 +1,40 @@
 package Hare_Krishna;
-
-import java.io.IOException;
 import java.util.Scanner;
-
-class yslException extends IOException
-{
-    yslException()
-    {
-        super();
-    }
-    int flt2int(float y)
-    {
-        return (int) y;
-    }
-}
 
 public class Prac_15
 {
-    static public void main(String... s)
+    public static void main(String[] args)
     {
-        int pr;
-        float roi;
-        float yrs;
-        Scanner scnr = new Scanner(System.in);
-        System.out.println("\nEnter the details for calculating amount : ");
-
-        System.out.print("\n\tROI : ");
-        roi = scnr.nextFloat();
-        System.out.print("\n\tPrincipal : ");
-        pr = scnr.nextInt();
-        float temp = (float) pr;
-
-        System.out.print("\n\tNumber of years : ");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("\nEnter ROI : ");
+        float roi = sc.nextFloat();
+        System.out.print("Enter Principal : ");
+        int principle = sc.nextInt();
+        System.out.print("Enter No. of Years : ");
+        float no = sc.nextFloat();
+        try
+        {
+            if(no == 2.12f)
+            {
+                throw new ArithmeticException();
+            }
+            float amount = (float) ((float)principle * (Math.pow((1 + roi / 100), no)));
+            System.out.print("\n\tROI = "+roi);
+            System.out.print("\n\tPrincipal = "+principle);
+            System.out.print("\n\tn = "+no);
+            System.out.print("\n\tAmount = "+amount);
+            System.out.println();
+        }
+        catch (Exception exc)
+        {
+            roi = 3;
+            float amount = (float) ((float)principle * (Math.pow((1 +
+                    roi / 100), no)));
+            System.out.print("\n\tROI = "+roi);
+            System.out.print("\n\tPrincipal = "+principle);
+            System.out.print("\n\tn = "+no);
+            System.out.print("\n\tAmount = "+amount);
+            System.out.println();
+        }
     }
 }
