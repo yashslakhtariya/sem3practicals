@@ -1,5 +1,5 @@
 package Hare_Krishna;
-import org.mariadb.jdbc.Driver;
+//import org.mariadb.jdbc.Driver;
 
 import java.sql.*;
 
@@ -9,10 +9,10 @@ public class Demo
     {
         try
         {
-            String name = "Yash";
-            int ID = 64;
+            String name = "Yash2";
+            int ID = 16;
             String query = "insert into demo values(" + ID + ", " + "\"" + name + "\"" +")";
-            Connection con = DriverManager.getConnection("jdbc:mariadb://localhost:3306/demo","yash","krsna");
+            Connection con = DriverManager.getConnection("jdbc:mariadb://localhost:3306/demo","demo","demo");
             Statement st = con.createStatement();
             int result = st.executeUpdate(query);
             System.out.println(result + " records affected");
