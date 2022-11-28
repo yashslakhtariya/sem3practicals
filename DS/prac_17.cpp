@@ -1,65 +1,66 @@
-#include<iostream>
-#include<string.h>
+#include <iostream>
+
 using namespace std;
 
-int main() 
+int main()
 {
-    int i, j, n;
-    int num[n];
-    int cnt_a = 0, cnt_s = 0, cnt_b = 0, cnt_r = 0, others = 0;
-    char ysl[100][100], s[100];
-
-    cin>>n;
-
-    for (i = 0; i < n; i++) 
+    int n;
+    cin >> n;
+    int n_a=0,n_s=0,n_b=0,n_r=0,n_x=0;
+    string names[n];
+    int arr[n];
+    for(int i=0;i<n;i++)
     {
-          cin>>ysl[i];
-          cin>>num[i];
-          if (num[i] == 1) 
-          {
-          cnt_a++;
-          } 
-          else if (num[i] == 2) 
-          {
-          cnt_s++;
-          } 
-          else if (num[i] == 3) 
-          {
-          cnt_b++;
-          } 
-          else if (num[i] == 4) 
-          {
-          cnt_r++;
-          } 
-          else 
-          {
-          others++;
-          }
+        cin >> names[i] >> arr[i];
+        if(arr[i]==1)
+        {
+            n_a++;
+        }
+        
+        if(arr[i]==2)
+        {
+            n_s++;
+        }
+        
+        if(arr[i]==3)
+        {
+            n_b++;
+        }
+        
+        if(arr[i]==4)
+        {
+            n_r++;
+        }
+        
+        if(arr[i]==5)
+        {
+            n_x++;
+        }
+        
     }
-
-     for (i = 0; i < n; i++) 
-     {
-          for (j = i + 1; j < n; j++) 
-          {
-               if (strcmp(ysl[i], ysl[j]) > 0) 
-               {
-                    strcpy(s, ysl[i]);
-                    strcpy(ysl[i], ysl[j]);
-                    strcpy(ysl[j], s);
-               }
-          }
-     }
-    cout<<"City-wise Patient Count\n";
-    cout<<"Ahmedabad-"<<cnt_a<<endl;
-    cout<<"Surat-"<<cnt_s<<endl;
-    cout<<"Baroda-"<<cnt_b<<endl;
-    cout<<"Rajkot-"<<cnt_r<<endl;
-    cout<<"Extra-"<<others<<endl;
-
-    cout<<"Patient List\n";
-
-    for (i = 0; i < n; i++) 
+    cout << "City-wise Patient Count" << endl;
+    cout << "Ahmedabad-" << n_a  << endl;
+    cout << "Surat-" << n_s << endl;
+    cout << "Baroda-" << n_b  << endl;
+    cout << "Rajkot-" << n_r  << endl;
+    cout << "Extra-" << n_x  << endl;
+    string temp;
+    cout << "Patient List" << endl;
+    for(int i=0;i<n;i++)
     {
-        cout<<ysl[i]<<endl;
+        for(int j=0;j<n-i-1;j++)
+        {
+            if( int(names[j][0]) >int(names[j+1][0]) )
+            {
+                string temp = names[j];
+                names[j]=names[j+1];
+                names[j+1]=temp;
+            }
+        }
     }
+    for(int i=0;i<n;i++)
+    {
+        cout << names[i] << endl;
+    }
+    return 0;
 }
